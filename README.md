@@ -1,32 +1,44 @@
-# Personal Portfolio
+# Vancouver Visual Culture Archive
 
-A fast, dependency-free portfolio site. Plain HTML, CSS, and a small amount of JavaScript. No build step.
+Sonny Saimon's portfolio and research archive. Plain HTML, CSS, and a small amount of JavaScript. No build step, no dependencies.
 
-## Structure
+## Pages
+
+| File | Section |
+| --- | --- |
+| `index.html` | Home: hero, archive themes, about the project, latest field notes, recent writing |
+| `about.html` | The project, the method, background, and contact |
+| `archive.html` | All entries in a filterable grid |
+| `entry.html` | One archive entry. Duplicate this file for each new entry |
+| `projects.html` | Longer research and photography projects |
+| `field-notes.html` | Short dated notes from the field |
+| `writing.html` | Essays and longer pieces |
+| `reference.html` | Books, archives, and sources, grouped by theme |
+| `concentration.html` | Current focus and what has been set aside |
+| `questions.html` | Open, partly answered, and settled research questions |
+
+Shared files:
 
 ```
-index.html          all page content lives here
-css/style.css       design tokens, layout, components, dark mode
-js/main.js          theme toggle, mobile nav, active section highlighting
+css/style.css       design tokens, layout, components
+js/main.js          mobile menu, archive filter, entry image gallery
+assets/img/         placeholder images. Replace with photographs
 assets/favicon.svg  tab icon
-assets/             put portrait.jpg and resume.pdf here
 ```
 
 ## Editing content
 
-Everything you'd want to change is in `index.html`:
+Every page is self-contained HTML, so edit the text in place.
 
-- **Hero**: name, tagline, and the availability line.
-- **Selected work**: each `<li class="work-item">` is one project. Set the link `href` to the live site or repo, and edit the year, type, title, description, and tags.
-- **About**: bio paragraphs and the "What I work with" list. Swap the portrait placeholder for `<img src="assets/portrait.jpg" alt="…">`.
-- **Experience**: each `<li class="timeline-item">` is one role or degree.
-- **Contact**: email address and social links.
-
-Colours and fonts are CSS custom properties at the top of `css/style.css`. Change `--accent`, `--bg`, and `--ink` there and the whole site follows. Dark mode has its own block just below.
+- **Header and footer** are repeated in each page. To change the site name or a nav label, search and replace across all `.html` files.
+- **Images** are SVG placeholders in `assets/img/`. Drop in your own JPGs and update the `src` attributes. Square images work best in the archive grid; the hero is 16:9.
+- **Archive entries**: each `<li class="grid-item">` on `archive.html` has a `data-category` that drives the filter buttons. Add a button and matching category to add a theme.
+- **New entry page**: copy `entry.html`, rename it, and fill in the six fields (location, date, observation, context, interpretation, academic connection). Link to it from `archive.html`.
+- **Colours and type** are custom properties at the top of `css/style.css`. Display type is Oswald, body is Inter, both from Google Fonts.
 
 ## Running locally
 
-Open `index.html` in a browser, or serve the folder:
+Open any `.html` file in a browser, or serve the folder:
 
 ```
 python3 -m http.server 8000
