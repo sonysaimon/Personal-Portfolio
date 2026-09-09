@@ -29,5 +29,8 @@
     "dotenv": "^17.2.3",
     "prisma": "^7.10.0",
     "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=20.9"
   }
 }
