@@ -69,7 +69,7 @@ export function SettingsPage({ store }: { store: Store }) {
       </div>
 
       <div style={{ fontSize: 15, marginBottom: 6 }}>Connected calendars</div>
-      <div style={{ fontSize: 13.5, color: T.mute, marginBottom: 12, lineHeight: 1.5 }}>Events from connected calendars appear in Today and Calendar. You can link both to one account. Calendar events are read-only in Dayline; tokens stay on the server.</div>
+      <div style={{ fontSize: 13.5, color: T.mute, marginBottom: 12, lineHeight: 1.5 }}>Events from connected calendars appear in Today and Calendar. You can link both to one account. Calendar events are read-only in Dayline; tokens stay on the server. If you disconnect a provider, sign in with the other one and click Connect here to link it again.</div>
       {PROVIDERS.map((prov) => {
         const c = store.connections.find((x) => x.provider === prov);
         const only = store.connections.length <= 1;
